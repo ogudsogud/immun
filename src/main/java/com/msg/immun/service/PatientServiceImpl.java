@@ -108,6 +108,58 @@ public class PatientServiceImpl implements PatientService {
 
 
     @Override
+    public void updatePatient(PatientModel patientModel) {
+        String sql = "UPDATE mtr_patient SET " +
+                "patient_name = ?, " +
+                "patient_address = ?, " +
+                "age = ?, " +
+                "gender = ?, " +
+                "email = ?, " +
+                "password = ?, " +
+                "phone = ?, " +
+                "birthday = ?, " +
+                "blood_type = ?, " +
+                "weight = ?, " +
+                "height = ?, " +
+                "addict = ?, " +
+                "allergic = ?, " +
+                "updated_by = ?, " +
+                "updated_on = now() WHERE " +
+                "id_patient = ? AND status = 1";
+        jdbcTemplate.update(sql,
+                patientModel.getPatient_name(),
+                patientModel.getPatient_address(),
+
+                patientModel.getAge(),
+                patientModel.getGender(),
+                patientModel.getEmail(),
+                patientModel.getPassword(),
+                patientModel.getPhone(),
+                patientModel.getBirthday(),
+                patientModel.getBlood_type(),
+                patientModel.getWeight(),
+                patientModel.getHeight(),
+                patientModel.getAddict(),
+                patientModel.getAllergic(),
+                patientModel.getUpdated_by(),
+//                patientModel.getUpdated_on(),
+                patientModel.getId_patient());
+    }
+
+
+    @Override
+    public boolean isEmailExist(String email) {
+        String sql = "SELECT count(*) from mtr_patient WHERE email = ? AND status = 1";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class, email);
+        if(count == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    @Override
     public boolean getByDrOtp(String number_otp) {
         String sql = "SELECT count(*) from mtr_patient WHERE number_otp = ? AND status = 1";
         int count = jdbcTemplate.queryForObject(sql, Integer.class, number_otp);
@@ -116,6 +168,12 @@ public class PatientServiceImpl implements PatientService {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void deletePatient(int id_patient) {
+        String sql = "UPDATE mtr_patient SET status = 0 where id_patient = ? ";
+        jdbcTemplate.update(sql, id_patient);
     }
 
 }

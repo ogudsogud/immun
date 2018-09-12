@@ -43,12 +43,12 @@ public class DoctorController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public ResponseEntity<DoctorModel> updateUser(@RequestBody DoctorModel doctorModel) {
         doctorService.updateDoctor(doctorModel);
-        return new ResponseEntity(new ErrCode("201", "Data Parts berhasil diubah"), HttpStatus.OK);
+        return new ResponseEntity(new ErrCode("201", "Data Dokter berhasil diubah"), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete={drid}")
     public ResponseEntity<Void> deleteDoctor(@PathVariable("drid") int dr_id) {
         doctorService.deleteDoctor(dr_id);
-        return new ResponseEntity(new ErrCode("201", "Data Parts berhasil Dihapus"), HttpStatus.OK);
+        return new ResponseEntity(new ErrCode("201", "Data Dokter berhasil Dihapus"), HttpStatus.OK);
     }
 }

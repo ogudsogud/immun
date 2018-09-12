@@ -14,5 +14,11 @@ public interface PatientService {
 
     boolean insertPatient(PatientModel patientModel);
 
+    void updatePatient(PatientModel patientModel);
+
+    boolean isEmailExist(String email);
+
     boolean getByDrOtp(String number_otp);
+
+    void deletePatient(int id_patient);
 }
