@@ -111,6 +111,17 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
+    public boolean getByDrOtp(String number_otp) {
+        String sql = "SELECT count(*) from mtr_doctor WHERE number_otp = ? AND status = 1";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class, number_otp);
+        if(count == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
     public void updateDoctor(DoctorModel doctorModel) {
         String sql = "UPDATE mtr_doctor SET " +
                 "no_sk = ?, " +

@@ -13,4 +13,6 @@ public interface PatientService {
     List<PatientModel> getDataPatient();
 
     boolean insertPatient(PatientModel patientModel);
+
+    boolean getByDrOtp(String number_otp);
 }

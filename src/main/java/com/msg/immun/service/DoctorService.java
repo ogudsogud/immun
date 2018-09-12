@@ -16,6 +16,8 @@ public interface DoctorService {
 
     DoctorModel getByDrName(String name);
 
+    boolean getByDrOtp(String number_otp);
+
     void updateDoctor(DoctorModel doctorModel);
 
     void deleteDoctor(int dr_id);

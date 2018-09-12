@@ -42,7 +42,7 @@ public class PatientServiceImpl implements PatientService {
             patientModel.setUpdated_by(rs.getString("updated_by"));
             patientModel.setUpdated_on(rs.getString("updated_on"));
             patientModel.setStatus(rs.getInt("status"));
-            patientModel.setEnabled(rs.getInt("enabled"));
+            patientModel.setNumber_otp(rs.getString("number_otp"));
             return patientModel;
         }
     }
@@ -105,4 +105,17 @@ public class PatientServiceImpl implements PatientService {
         );
         return false;
     }
+
+
+    @Override
+    public boolean getByDrOtp(String number_otp) {
+        String sql = "SELECT count(*) from mtr_patient WHERE number_otp = ? AND status = 1";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class, number_otp);
+        if(count == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
