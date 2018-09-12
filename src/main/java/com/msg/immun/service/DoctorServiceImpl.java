@@ -26,7 +26,7 @@ public class DoctorServiceImpl implements DoctorService{
         @Override
         public DoctorModel mapRow(ResultSet rs, int i) throws SQLException {
             DoctorModel doctorModel = new DoctorModel();
-            doctorModel.setDr_id(rs.getInt("dr_id"));
+            doctorModel.setId_dr(rs.getInt("id_dr"));
             doctorModel.setNo_sk(rs.getString("no_sk"));
             doctorModel.setSip(rs.getString("sip"));
             doctorModel.setName(rs.getString("name"));
@@ -133,7 +133,7 @@ public class DoctorServiceImpl implements DoctorService{
                 doctorModel.getSpecialist(),
                 doctorModel.getCreated_by(),
                 doctorModel.getUpdated_by(),
-                doctorModel.getDr_id());
+                doctorModel.getId_dr());
     }
 
 

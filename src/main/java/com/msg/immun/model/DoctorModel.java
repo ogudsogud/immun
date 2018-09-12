@@ -4,7 +4,7 @@ package com.msg.immun.model;
  * Created by yoga.wiguna on 06/09/2018.
  */
 public class DoctorModel {
-    private int dr_id;
+    private int id_dr;
     private String no_sk;
     private String sip;
     private String name;
@@ -19,9 +19,10 @@ public class DoctorModel {
     private String updated_by;
     private String updated_on;
     private int status;
+    private boolean enabled;
 
-    public DoctorModel(int dr_id, String no_sk, String sip, String name, String birthday, String address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status) {
-        this.dr_id = dr_id;
+    public DoctorModel(int id_dr, String no_sk, String sip, String name, String birthday, String address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, boolean enabled) {
+        this.id_dr = id_dr;
         this.no_sk = no_sk;
         this.sip = sip;
         this.name = name;
@@ -36,18 +37,19 @@ public class DoctorModel {
         this.updated_by = updated_by;
         this.updated_on = updated_on;
         this.status = status;
+        this.enabled = enabled;
     }
 
     public DoctorModel() {
 
     }
 
-    public int getDr_id() {
-        return dr_id;
+    public int getId_dr() {
+        return id_dr;
     }
 
-    public void setDr_id(int dr_id) {
-        this.dr_id = dr_id;
+    public void setId_dr(int id_dr) {
+        this.id_dr = id_dr;
     }
 
     public String getNo_sk() {
@@ -161,5 +163,13 @@ public class DoctorModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

@@ -4,7 +4,7 @@ package com.msg.immun.model;
  * Created by yoga.wiguna on 06/09/2018.
  */
 public class PatientModel {
-    private int patient_id;
+    private int id_patient;
     private String name;
     private String address;
     private String age;
@@ -23,9 +23,10 @@ public class PatientModel {
     private String updated_by;
     private String updated_on;
     private int status;
+    private int enabled;
 
-    public PatientModel(int patient_id, String name, String address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status) {
-        this.patient_id = patient_id;
+    public PatientModel(int id_patient, String name, String address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, int enabled) {
+        this.id_patient = id_patient;
         this.name = name;
         this.address = address;
         this.age = age;
@@ -44,14 +45,19 @@ public class PatientModel {
         this.updated_by = updated_by;
         this.updated_on = updated_on;
         this.status = status;
+        this.enabled = enabled;
     }
 
-    public int getPatient_id() {
-        return patient_id;
+    public PatientModel() {
+
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public int getId_patient() {
+        return id_patient;
+    }
+
+    public void setId_patient(int id_patient) {
+        this.id_patient = id_patient;
     }
 
     public String getName() {
@@ -196,5 +202,13 @@ public class PatientModel {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
 }
