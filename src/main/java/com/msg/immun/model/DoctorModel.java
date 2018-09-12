@@ -7,9 +7,9 @@ public class DoctorModel {
     private int id_dr;
     private String no_sk;
     private String sip;
-    private String name;
+    private String doctor_name;
     private String birthday;
-    private String address;
+    private String doctor_address;
     private String gender;
     private String email;
     private String password;
@@ -21,13 +21,13 @@ public class DoctorModel {
     private int status;
     private String number_otp;
 
-    public DoctorModel(int id_dr, String no_sk, String sip, String name, String birthday, String address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
+    public DoctorModel(int id_dr, String no_sk, String sip, String doctor_name, String birthday, String doctor_address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
         this.id_dr = id_dr;
         this.no_sk = no_sk;
         this.sip = sip;
-        this.name = name;
+        this.doctor_name = doctor_name;
         this.birthday = birthday;
-        this.address = address;
+        this.doctor_address = doctor_address;
         this.gender = gender;
         this.email = email;
         this.password = password;
@@ -68,12 +68,13 @@ public class DoctorModel {
         this.sip = sip;
     }
 
-    public String getName() {
-        return name;
+
+    public String getDoctor_name() {
+        return doctor_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDoctor_name(String doctor_name) {
+        this.doctor_name = doctor_name;
     }
 
     public String getBirthday() {
@@ -84,12 +85,13 @@ public class DoctorModel {
         this.birthday = birthday;
     }
 
-    public String getAddress() {
-        return address;
+
+    public String getDoctor_address() {
+        return doctor_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDoctor_address(String doctor_address) {
+        this.doctor_address = doctor_address;
     }
 
     public String getGender() {

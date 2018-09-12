@@ -24,8 +24,8 @@ public class PatientServiceImpl implements PatientService {
         public PatientModel mapRow(ResultSet rs, int i) throws SQLException {
             PatientModel patientModel = new PatientModel();
             patientModel.setId_patient(rs.getInt("id_patient"));
-            patientModel.setName(rs.getString("name"));
-            patientModel.setAddress(rs.getString("address"));
+            patientModel.setPatient_name(rs.getString("patient_name"));
+            patientModel.setPatient_address(rs.getString("patient_address"));
             patientModel.setAge(rs.getString("age"));
             patientModel.setGender(rs.getString("gender"));
             patientModel.setEmail(rs.getString("email"));
@@ -63,8 +63,8 @@ public class PatientServiceImpl implements PatientService {
     public boolean insertPatient(PatientModel patientModel) {
 
         String sql = new StringBuilder().append("INSERT INTO mtr_patient (").
-                append("name,").
-                append("address,").
+                append("patient_name,").
+                append("patient_address,").
                 append("age,").
                 append("gender,").
                 append("email,").
@@ -84,8 +84,8 @@ public class PatientServiceImpl implements PatientService {
 //                append("number_otp)").
         append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+hasil+")").toString();
         jdbcTemplate.update(sql,
-                patientModel.getName(),
-                patientModel.getAddress(),
+                patientModel.getPatient_name(),
+                patientModel.getPatient_address(),
                 patientModel.getAge(),
                 patientModel.getGender(),
                 patientModel.getEmail(),

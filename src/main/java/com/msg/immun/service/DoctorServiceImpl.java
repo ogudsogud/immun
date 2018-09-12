@@ -30,9 +30,9 @@ public class DoctorServiceImpl implements DoctorService{
             doctorModel.setId_dr(rs.getInt("id_dr"));
             doctorModel.setNo_sk(rs.getString("no_sk"));
             doctorModel.setSip(rs.getString("sip"));
-            doctorModel.setName(rs.getString("name"));
+            doctorModel.setDoctor_name(rs.getString("doctor_name"));
             doctorModel.setBirthday(rs.getString("birthday"));
-            doctorModel.setAddress(rs.getString("address"));
+            doctorModel.setDoctor_address(rs.getString("doctor_address"));
             doctorModel.setGender(rs.getString("gender"));
             doctorModel.setEmail(rs.getString("email"));
             doctorModel.setPassword(rs.getString("password"));
@@ -42,6 +42,7 @@ public class DoctorServiceImpl implements DoctorService{
             doctorModel.setUpdated_by(rs.getString("updated_by"));
             doctorModel.setUpdated_on(rs.getString("updated_on"));
             doctorModel.setStatus(rs.getInt("status"));
+            doctorModel.setNumber_otp(rs.getString("number_otp"));
             return doctorModel;
         }
     }
@@ -61,9 +62,9 @@ public class DoctorServiceImpl implements DoctorService{
         String sql = new StringBuilder().append("INSERT INTO mtr_doctor (").
                 append("no_sk,").
                 append("sip,").
-                append("name,").
+                append("doctor_name,").
                 append("birthday,").
-                append("address,").
+                append("doctor_address,").
                 append("gender,").
                 append("email,").
                 append("password,").
@@ -78,9 +79,9 @@ public class DoctorServiceImpl implements DoctorService{
         jdbcTemplate.update(sql,
                 doctorModel.getNo_sk(),
                 doctorModel.getSip(),
-                doctorModel.getName(),
+                doctorModel.getDoctor_name(),
                 doctorModel.getBirthday(),
-                doctorModel.getAddress(),
+                doctorModel.getDoctor_address(),
                 doctorModel.getGender(),
                 doctorModel.getEmail(),
                 doctorModel.getPassword(),
@@ -104,7 +105,7 @@ public class DoctorServiceImpl implements DoctorService{
 
     @Override
     public DoctorModel getByDrName(String name) {
-        String sql = "SELECT * FROM mtr_doctor WHERE name = ? AND status = 1";
+        String sql = "SELECT * FROM mtr_doctor WHERE doctor_name = ? AND status = 1";
         RowMapper<DoctorModel> rowMapper = new DoctorRowMapper();
         DoctorModel doctorModel = jdbcTemplate.queryForObject(sql, rowMapper, name);
         return doctorModel;
@@ -126,9 +127,9 @@ public class DoctorServiceImpl implements DoctorService{
         String sql = "UPDATE mtr_doctor SET " +
                 "no_sk = ?, " +
                 "sip = ?, " +
-                "name = ?, " +
+                "doctor_name = ?, " +
                 "birthday = ?, " +
-                "address = ?, " +
+                "doctor_address = ?, " +
                 "gender = ?, " +
                 "email = ?, " +
                 "password = ?, " +
@@ -139,9 +140,9 @@ public class DoctorServiceImpl implements DoctorService{
         jdbcTemplate.update(sql,
                 doctorModel.getNo_sk(),
                 doctorModel.getSip(),
-                doctorModel.getName(),
+                doctorModel.getDoctor_name(),
                 doctorModel.getBirthday(),
-                doctorModel.getAddress(),
+                doctorModel.getDoctor_address(),
                 doctorModel.getGender(),
                 doctorModel.getEmail(),
                 doctorModel.getPassword(),

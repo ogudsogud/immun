@@ -6,8 +6,8 @@ package com.msg.immun.model;
 public class ClinicModel {
 
     private int id_clinic;
-    private String name;
-    private String address;
+    private String clinic_name;
+    private String clinic_address;
     private String created_by;
     private String created_on;
     private String updated_by;
@@ -15,10 +15,10 @@ public class ClinicModel {
     private int status;
 
 
-    public ClinicModel(int id_clinic, String name, String address, String created_by, String created_on, String updated_by, String updated_on, int status) {
+    public ClinicModel(int id_clinic, String clinic_name, String clinic_address, String created_by, String created_on, String updated_by, String updated_on, int status) {
         this.id_clinic = id_clinic;
-        this.name = name;
-        this.address = address;
+        this.clinic_name = clinic_name;
+        this.clinic_address = clinic_address;
         this.created_by = created_by;
         this.created_on = created_on;
         this.updated_by = updated_by;
@@ -39,20 +39,21 @@ public class ClinicModel {
         this.id_clinic = id_clinic;
     }
 
-    public String getName() {
-        return name;
+
+    public String getClinic_name() {
+        return clinic_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setClinic_name(String clinic_name) {
+        this.clinic_name = clinic_name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getClinic_address() {
+        return clinic_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setClinic_address(String clinic_address) {
+        this.clinic_address = clinic_address;
     }
 
     public String getCreated_by() {

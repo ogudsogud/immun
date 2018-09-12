@@ -24,8 +24,8 @@ public class ClinicServiceImpl implements ClinicService {
         public ClinicModel mapRow(ResultSet rs, int i) throws SQLException {
             ClinicModel clinicModel = new ClinicModel();
             clinicModel.setId_clinic(rs.getInt("id_clinic"));
-            clinicModel.setName(rs.getString("name"));
-            clinicModel.setAddress(rs.getString("address"));
+            clinicModel.setClinic_name(rs.getString("clinic_name"));
+            clinicModel.setClinic_address(rs.getString("clinic_address"));
             clinicModel.setCreated_by(rs.getString("created_by"));
             clinicModel.setCreated_on(rs.getString("created_on"));
             clinicModel.setUpdated_by(rs.getString("updated_by"));
@@ -46,8 +46,8 @@ public class ClinicServiceImpl implements ClinicService {
     public boolean insertClinic(ClinicModel clinicModel) {
 
         String sql = new StringBuilder().append("INSERT INTO mtr_clinic (").
-                append("name,").
-                append("address,").
+                append("clinic_name,").
+                append("clinic_address,").
                 append("created_by,").
 //                append("created_on,").
         append("updated_by,").
@@ -55,8 +55,8 @@ public class ClinicServiceImpl implements ClinicService {
 //                append("status)").
         append("VALUES (?,?,?,NOW(),?,NOW(),1)").toString();
         jdbcTemplate.update(sql,
-                clinicModel.getName(),
-                clinicModel.getAddress(),
+                clinicModel.getClinic_name(),
+                clinicModel.getClinic_address(),
                 clinicModel.getCreated_by(),
 //                clinicModel.getCreated_on(),
                 clinicModel.getUpdated_by()
@@ -69,7 +69,7 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     public boolean isName(String name) {
-        String sql = "SELECT count(*) from mtr_clinic WHERE name = ? AND status = 1";
+        String sql = "SELECT count(*) from mtr_clinic WHERE clinic_name = ? AND status = 1";
         int count = jdbcTemplate.queryForObject(sql, Integer.class, name);
         return count == 0;
     }
@@ -77,14 +77,14 @@ public class ClinicServiceImpl implements ClinicService {
     @Override
     public void updateClinic(ClinicModel clinicModel) {
         String sql = "UPDATE mtr_clinic SET " +
-                "name = ?, " +
-                "address = ?, " +
+                "clinic_name = ?, " +
+                "clinic_address = ?, " +
                 "updated_by = ?, " +
                 "updated_on = now() WHERE " +
                 "id_clinic = ? AND status = 1";
         jdbcTemplate.update(sql,
-                clinicModel.getName(),
-                clinicModel.getAddress(),
+                clinicModel.getClinic_name(),
+                clinicModel.getClinic_address(),
                 clinicModel.getUpdated_by(),
                 clinicModel.getId_clinic());
     }

@@ -5,8 +5,8 @@ package com.msg.immun.model;
  */
 public class PatientModel {
     private int id_patient;
-    private String name;
-    private String address;
+    private String patient_name;
+    private String patient_address;
     private String age;
     private String gender;
     private String email;
@@ -25,10 +25,10 @@ public class PatientModel {
     private int status;
     private String number_otp;
 
-    public PatientModel(int id_patient, String name, String address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
+    public PatientModel(int id_patient, String patient_name, String patient_address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
         this.id_patient = id_patient;
-        this.name = name;
-        this.address = address;
+        this.patient_name = patient_name;
+        this.patient_address = patient_address;
         this.age = age;
         this.gender = gender;
         this.email = email;
@@ -60,20 +60,21 @@ public class PatientModel {
         this.id_patient = id_patient;
     }
 
-    public String getName() {
-        return name;
+
+    public String getPatient_name() {
+        return patient_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPatient_name(String patient_name) {
+        this.patient_name = patient_name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPatient_address() {
+        return patient_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPatient_address(String patient_address) {
+        this.patient_address = patient_address;
     }
 
     public String getAge() {
