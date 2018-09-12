@@ -19,9 +19,9 @@ public class DoctorModel {
     private String updated_by;
     private String updated_on;
     private int status;
-    private boolean enabled;
+    private String number_otp;
 
-    public DoctorModel(int id_dr, String no_sk, String sip, String name, String birthday, String address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, boolean enabled) {
+    public DoctorModel(int id_dr, String no_sk, String sip, String name, String birthday, String address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
         this.id_dr = id_dr;
         this.no_sk = no_sk;
         this.sip = sip;
@@ -37,7 +37,7 @@ public class DoctorModel {
         this.updated_by = updated_by;
         this.updated_on = updated_on;
         this.status = status;
-        this.enabled = enabled;
+        this.number_otp = number_otp;
     }
 
     public DoctorModel() {
@@ -165,11 +165,12 @@ public class DoctorModel {
         this.status = status;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+
+    public String getNumber_otp() {
+        return number_otp;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setNumber_otp(String number_otp) {
+        this.number_otp = number_otp;
     }
 }

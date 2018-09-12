@@ -23,9 +23,9 @@ public class PatientModel {
     private String updated_by;
     private String updated_on;
     private int status;
-    private int enabled;
+    private String number_otp;
 
-    public PatientModel(int id_patient, String name, String address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, int enabled) {
+    public PatientModel(int id_patient, String name, String address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
         this.id_patient = id_patient;
         this.name = name;
         this.address = address;
@@ -45,7 +45,7 @@ public class PatientModel {
         this.updated_by = updated_by;
         this.updated_on = updated_on;
         this.status = status;
-        this.enabled = enabled;
+        this.number_otp = number_otp;
     }
 
     public PatientModel() {
@@ -204,11 +204,12 @@ public class PatientModel {
         this.status = status;
     }
 
-    public int getEnabled() {
-        return enabled;
+
+    public String getNumber_otp() {
+        return number_otp;
     }
 
-    public void setEnabled(int enabled) {
-        this.enabled = enabled;
+    public void setNumber_otp(String number_otp) {
+        this.number_otp = number_otp;
     }
 }

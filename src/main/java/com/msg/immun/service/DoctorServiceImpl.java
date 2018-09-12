@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by yoga.wiguna on 06/09/2018.
@@ -53,9 +54,10 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
 
+    Random random = new Random();
+    String hasil = String.format("%04d", random.nextInt(10000));
     @Override
     public boolean insertDoctor(DoctorModel doctorModel) {
-
         String sql = new StringBuilder().append("INSERT INTO mtr_doctor (").
                 append("no_sk,").
                 append("sip,").
@@ -71,7 +73,8 @@ public class DoctorServiceImpl implements DoctorService{
                 append("updated_by,").
 //                append("updated_on,").
 //                append("status)").
-                append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,NOW(),?,NOW(),1)").toString();
+//                append("number_otp)").
+        append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,NOW(),?,NOW(),1," + hasil + ")").toString();
         jdbcTemplate.update(sql,
                 doctorModel.getNo_sk(),
                 doctorModel.getSip(),
@@ -86,7 +89,8 @@ public class DoctorServiceImpl implements DoctorService{
 //                doctorModel.getCreated_on(),
                 doctorModel.getUpdated_by()
 //                doctorModel.getUpdated_on(),
-//                doctorModel.getStatus()
+//                doctorModel.getStatus(),
+//                doctorModel.getNumber_otp()
         );
         return false;
     }
