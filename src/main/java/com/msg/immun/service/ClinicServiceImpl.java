@@ -89,5 +89,11 @@ public class ClinicServiceImpl implements ClinicService {
                 clinicModel.getId_clinic());
     }
 
+    @Override
+    public void deleteClinic(int id_clinic) {
+        String sql = "UPDATE mtr_clinic SET status = 0 where id_clinic = ? ";
+        jdbcTemplate.update(sql, id_clinic);
+    }
+
 
 }
