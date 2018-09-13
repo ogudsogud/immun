@@ -4,6 +4,8 @@ import com.msg.immun.model.ClinicModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +14,9 @@ import java.util.List;
 /**
  * Created by yoga.wiguna on 12/09/2018.
  */
+
+@Transactional
+@Repository
 public class ClinicServiceImpl implements ClinicService {
 
 
@@ -45,15 +50,18 @@ public class ClinicServiceImpl implements ClinicService {
     @Override
     public boolean insertClinic(ClinicModel clinicModel) {
 
-        String sql = new StringBuilder().append("INSERT INTO mtr_clinic (").
-                append("clinic_name,").
-                append("clinic_address,").
-                append("created_by,").
-//                append("created_on,").
-        append("updated_by,").
-//                append("updated_on,").
-//                append("status)").
-        append("VALUES (?,?,?,NOW(),?,NOW(),1)").toString();
+        String sql = new StringBuilder()
+                .append("INSERT INTO mtr_clinic ")
+                .append("(clinic_name, ")
+                .append("clinic_address, ")
+                .append("created_by, ")
+                .append("created_on,")
+                .append("updated_by,")
+                .append("updated_on,")
+                .append("status")
+                .append(")")
+                .append("VALUES (?,?,?,NOW()::TIMESTAMP ,?,NOW()::TIMESTAMP,1)")
+                .toString();
         jdbcTemplate.update(sql,
                 clinicModel.getClinic_name(),
                 clinicModel.getClinic_address(),
