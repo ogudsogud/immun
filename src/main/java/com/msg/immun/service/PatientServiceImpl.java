@@ -84,11 +84,11 @@ public class PatientServiceImpl implements PatientService {
                 append("addict,").
                 append("allergic,").
                 append("created_by,").
-//                append("created_on,").
+                append("created_on,").
         append("updated_by").
-//                append("updated_on,").
-//                append("status)").
-//                append("number_otp)").
+                append("updated_on,").
+                append("status)").
+                append("number_otp)").
                         append(")").
         append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+otp+")").toString();
         jdbcTemplate.update(sql,

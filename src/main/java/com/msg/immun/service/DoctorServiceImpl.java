@@ -57,7 +57,7 @@ public class DoctorServiceImpl implements DoctorService{
 
 
     Random random = new Random();
-    String hasil = String.format("%04d", random.nextInt(10000));
+    int otp = 100000 + random.nextInt(900000);
     @Override
     public boolean insertDoctor(DoctorModel doctorModel) {
         String sql = new StringBuilder().append("INSERT INTO mtr_doctor (").
@@ -72,12 +72,13 @@ public class DoctorServiceImpl implements DoctorService{
                 append("phone,").
                 append("specialist,").
                 append("created_by,").
-//                append("created_on,").
-                append("updated_by,").
-//                append("updated_on,").
-//                append("status)").
-//                append("number_otp)").
-        append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,?,NOW(),?,NOW(),1," + hasil + ")").toString();
+                append("created_on,").
+                append("updated_by").
+                append("updated_on,").
+                append("status)").
+                append("number_otp)").
+                        append(")").
+        append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,?,NOW(),?,NOW(),1," + otp + ")").toString();
         jdbcTemplate.update(sql,
                 doctorModel.getNo_sk(),
                 doctorModel.getSip(),
