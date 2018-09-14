@@ -13,6 +13,7 @@ public class DoctorModel {
     private String gender;
     private String email;
     private String password;
+    private String phone;
     private String specialist;
     private String created_by;
     private String created_on;
@@ -21,7 +22,7 @@ public class DoctorModel {
     private int status;
     private String number_otp;
 
-    public DoctorModel(int id_dr, String no_sk, String sip, String doctor_name, String birthday, String doctor_address, String gender, String email, String password, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
+    public DoctorModel(int id_dr, String no_sk, String sip, String doctor_name, String birthday, String doctor_address, String gender, String email, String password, String phone, String specialist, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
         this.id_dr = id_dr;
         this.no_sk = no_sk;
         this.sip = sip;
@@ -31,6 +32,7 @@ public class DoctorModel {
         this.gender = gender;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.specialist = specialist;
         this.created_by = created_by;
         this.created_on = created_on;
@@ -118,6 +120,13 @@ public class DoctorModel {
         this.password = password;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getSpecialist() {
         return specialist;

@@ -15,4 +15,6 @@ public interface ClinicService {
     boolean isName(String name);
 
     void updateClinic(ClinicModel clinicModel);
+
+    void deleteClinic(int id_clinic);
 }

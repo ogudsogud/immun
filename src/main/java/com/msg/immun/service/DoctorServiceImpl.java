@@ -36,6 +36,7 @@ public class DoctorServiceImpl implements DoctorService{
             doctorModel.setGender(rs.getString("gender"));
             doctorModel.setEmail(rs.getString("email"));
             doctorModel.setPassword(rs.getString("password"));
+            doctorModel.setPhone(rs.getString("phone"));
             doctorModel.setSpecialist(rs.getString("specialist"));
             doctorModel.setCreated_by(rs.getString("created_by"));
             doctorModel.setCreated_on(rs.getString("created_on"));
@@ -68,6 +69,7 @@ public class DoctorServiceImpl implements DoctorService{
                 append("gender,").
                 append("email,").
                 append("password,").
+                append("phone,").
                 append("specialist,").
                 append("created_by,").
 //                append("created_on,").
@@ -75,7 +77,7 @@ public class DoctorServiceImpl implements DoctorService{
 //                append("updated_on,").
 //                append("status)").
 //                append("number_otp)").
-        append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,NOW(),?,NOW(),1," + hasil + ")").toString();
+        append("VALUES (?,?,?,?,?,?,?,MD5(?),?,?,?,NOW(),?,NOW(),1," + hasil + ")").toString();
         jdbcTemplate.update(sql,
                 doctorModel.getNo_sk(),
                 doctorModel.getSip(),
@@ -85,6 +87,7 @@ public class DoctorServiceImpl implements DoctorService{
                 doctorModel.getGender(),
                 doctorModel.getEmail(),
                 doctorModel.getPassword(),
+                doctorModel.getPhone(),
                 doctorModel.getSpecialist(),
                 doctorModel.getCreated_by(),
 //                doctorModel.getCreated_on(),
