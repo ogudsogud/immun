@@ -64,8 +64,6 @@ public class PatientServiceImpl implements PatientService {
 
 
         Random random = new Random();
-        int otp = 100000 + random.nextInt(900000);
-
     @Override
     public boolean insertPatient(PatientModel patientModel) {
 
@@ -90,7 +88,7 @@ public class PatientServiceImpl implements PatientService {
                 append("status,").
                 append("number_otp").
                 append(")").
-        append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+otp+")").toString();
+        append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+patientModel.getPhone().substring(4,4)+random.nextInt(9999)+")").toString();
         jdbcTemplate.update(sql,
                 patientModel.getPatient_name(),
                 patientModel.getPatient_address(),
