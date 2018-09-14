@@ -37,7 +37,7 @@ public class DoctorController {
             doctorService.insertDoctor(doctorModel);
         return new ResponseEntity(new ErrCode("201", "Data Dokter berhasil Disimpan"), HttpStatus.CREATED);
         }
-        return  new ResponseEntity(new ErrCode("409", "Data Dokter sudah ada"), HttpStatus.CONFLICT);
+        return  new ResponseEntity(new ErrCode("409", "Data Email sudah ada"), HttpStatus.CONFLICT);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
