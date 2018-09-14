@@ -31,7 +31,7 @@ public class PatientController {
         return new ResponseEntity<List<PatientModel>>(list, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/insert-new", method = RequestMethod.POST)
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public ResponseEntity<Void> createCluster(@RequestBody PatientModel patientModel, UriComponentsBuilder uriComponentsBuilder) {
         if (patientService.isEmailExist(patientModel.getEmail()) == true) {
             patientService.insertPatient(patientModel);
