@@ -73,7 +73,7 @@ public class DoctorServiceImpl implements DoctorService{
                 append("specialist,").
                 append("created_by,").
                 append("created_on,").
-                append("updated_by").
+                append("updated_by,").
                 append("updated_on,").
                 append("status,").
                 append("number_otp").
