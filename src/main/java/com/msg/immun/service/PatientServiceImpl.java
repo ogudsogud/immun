@@ -4,6 +4,8 @@ import com.msg.immun.model.PatientModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +15,9 @@ import java.util.Random;
 /**
  * Created by yoga.wiguna on 12/09/2018.
  */
+
+@Transactional
+@Repository
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
@@ -57,8 +62,10 @@ public class PatientServiceImpl implements PatientService {
     }
 
 
-    Random random = new Random();
-    String hasil = String.format("%04d", random.nextInt(10000));
+
+        Random random = new Random();
+        int otp = 100000 + random.nextInt(900000);
+
     @Override
     public boolean insertPatient(PatientModel patientModel) {
 
@@ -82,7 +89,7 @@ public class PatientServiceImpl implements PatientService {
 //                append("updated_on,").
 //                append("status)").
 //                append("number_otp)").
-        append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+hasil+")").toString();
+        append("VALUES (?,?,?,?,?,MD5(?),?,?,?,?,?,?,?,?,NOW(),?,NOW(),1,"+otp+")").toString();
         jdbcTemplate.update(sql,
                 patientModel.getPatient_name(),
                 patientModel.getPatient_address(),
