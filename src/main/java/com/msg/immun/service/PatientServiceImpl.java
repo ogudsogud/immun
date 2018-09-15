@@ -107,7 +107,7 @@ public class PatientServiceImpl implements PatientService {
 //                patientModel.getCreated_on(),
                 patientModel.getUpdated_by()
 //                patientModel.getUpdated_on(),
-//                patientModel.getStatus()
+//                patientModel.getStatus(),
         );
         return false;
     }
@@ -164,6 +164,13 @@ public class PatientServiceImpl implements PatientService {
         }
     }
 
+    @Override
+    public List<PatientModel> getPatientEmail(String email) {
+        String sql = "SELECT * FROM mtr_doctor WHERE email = ? AND status = 1";
+        RowMapper<PatientModel> rowMapper = new PatientRowMapper();
+        PatientModel patientModel = jdbcTemplate.queryForObject(sql, rowMapper, email);
+        return null;
+    }
 
     @Override
     public boolean getByDrOtp(String number_otp) {
