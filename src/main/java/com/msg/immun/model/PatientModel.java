@@ -1,8 +1,5 @@
 package com.msg.immun.model;
 
-import javax.persistence.*;
-
-
 /**
  * Created by yoga.wiguna on 06/09/2018.
  */
