@@ -27,7 +27,6 @@ public class PatientModel {
     private String updated_on;
     private int status;
     private String number_otp;
-    private VerificationToken verificationToken;
     private String enabled;
 
     public PatientModel(int id_patient, String patient_name, String patient_address,
@@ -227,14 +226,6 @@ public class PatientModel {
         this.number_otp = number_otp;
     }
 
-    @OneToOne(mappedBy = "patientModel", cascade = CascadeType.ALL)
-    public VerificationToken getVerificationToken() {
-        return verificationToken;
-    }
-
-    public void setVerificationToken(VerificationToken verificationToken) {
-        this.verificationToken = verificationToken;
-    }
 
     public String getEnabled() {
         return enabled;

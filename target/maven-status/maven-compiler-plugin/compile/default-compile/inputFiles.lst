@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\controller\DoctorController.java
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\service\PatientService.java
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\service\PatientServiceImpl.java
@@ -13,3 +14,26 @@ D:\APPS\API\i-mmun\src\main\java\com\msg\immun\service\DoctorService.java
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\service\DoctorServiceImpl.java
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\controller\ClinicController.java
 D:\APPS\API\i-mmun\src\main\java\com\msg\immun\service\ClinicServiceImpl.java
+=======
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\ErrCode.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\ClinicService.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\PatientServiceImpl.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\DoctorServiceImpl.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\controller\PatientController.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\VerifyTokenService.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\ClinicServiceImpl.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\ImmunApplication.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\VerificationToken.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\MailProperties.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\controller\DoctorController.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\ClinicModel.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\VerifyTokenServiceImpl.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\PatientService.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\EmailService.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\service\DoctorService.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\PatientModel.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\VerificationForm.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\TrxScheduleModule.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\controller\ClinicController.java
+E:\APLIKASI\API\i-mmun\src\main\java\com\msg\immun\model\DoctorModel.java
+>>>>>>> Stashed changes
