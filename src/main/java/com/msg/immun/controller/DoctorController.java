@@ -25,7 +25,7 @@ public class DoctorController {
     @RequestMapping("/list")
     public ResponseEntity<List<DoctorModel>> getAll(){
         if (doctorService.getDataDoctor().isEmpty()) {
-            return  new ResponseEntity(new ErrCode("409", "Data Dokter Kosong"), HttpStatus.NOT_FOUND);
+            return  new ResponseEntity(new ErrCode("409", "Data Kosong"), HttpStatus.NOT_FOUND);
         }
         List<DoctorModel> list = doctorService.getDataDoctor();
         return new ResponseEntity<List<DoctorModel>>(list, HttpStatus.OK);
