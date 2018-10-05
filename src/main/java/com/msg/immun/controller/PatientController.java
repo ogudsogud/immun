@@ -2,13 +2,18 @@ package com.msg.immun.controller;
 
 import com.msg.immun.model.ErrCode;
 import com.msg.immun.model.PatientModel;
+import com.msg.immun.model.VerificationForm;
 import com.msg.immun.service.PatientService;
+import com.msg.immun.service.VerifyTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -21,6 +26,38 @@ public class PatientController {
 
     @Autowired
     private PatientService patientService;
+    private VerifyTokenService verifyTokenService;
+
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/email-verification";
+    }
+
+    @GetMapping("/email-verification")
+    public String formGet(Model model) {
+        model.addAttribute("verificationForm", new VerificationForm());
+        return "verification-form";
+    }
+
+    @PostMapping("/email-verification")
+    public String formPost(@Valid VerificationForm verificationForm, BindingResult bindingResult, Model model) {
+        if (!bindingResult.hasErrors()) {
+            model.addAttribute("noErrors", true);
+        }
+        model.addAttribute("verificationForm", verificationForm);
+        verifyTokenService.createVerification(verificationForm.getEmail());
+        return "verification-form";
+    }
+
+    @GetMapping("/verify-email")
+    @ResponseBody
+    public String verifyEmail(String code) {
+        return verifyTokenService.verifyEmail(code).getBody();
+    }
+
+
+
+
 
     @RequestMapping("/list")
     public ResponseEntity<List<PatientModel>> getAll(){

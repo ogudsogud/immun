@@ -1,5 +1,8 @@
 package com.msg.immun.model;
 
+import javax.persistence.*;
+
+
 /**
  * Created by yoga.wiguna on 06/09/2018.
  */
@@ -24,8 +27,16 @@ public class PatientModel {
     private String updated_on;
     private int status;
     private String number_otp;
+    private VerificationToken verificationToken;
+    private String enabled;
 
-    public PatientModel(int id_patient, String patient_name, String patient_address, String age, String gender, String email, String password, String Phone, String birthday, String blood_type, int weight, int height, String addict, String allergic, String created_by, String created_on, String updated_by, String updated_on, int status, String number_otp) {
+    public PatientModel(int id_patient, String patient_name, String patient_address,
+                        String age, String gender, String email,
+                        String password, String Phone, String birthday,
+                        String blood_type, int weight, int height,
+                        String addict, String allergic, String created_by,
+                        String created_on, String updated_by, String updated_on,
+                        int status, String number_otp) {
         this.id_patient = id_patient;
         this.patient_name = patient_name;
         this.patient_address = patient_address;
@@ -46,6 +57,8 @@ public class PatientModel {
         this.updated_on = updated_on;
         this.status = status;
         this.number_otp = number_otp;
+
+
     }
 
     public PatientModel() {
@@ -212,5 +225,22 @@ public class PatientModel {
 
     public void setNumber_otp(String number_otp) {
         this.number_otp = number_otp;
+    }
+
+    @OneToOne(mappedBy = "patientModel", cascade = CascadeType.ALL)
+    public VerificationToken getVerificationToken() {
+        return verificationToken;
+    }
+
+    public void setVerificationToken(VerificationToken verificationToken) {
+        this.verificationToken = verificationToken;
+    }
+
+    public String getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(String enabled) {
+        this.enabled = enabled;
     }
 }

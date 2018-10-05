@@ -18,6 +18,8 @@ public interface PatientService {
 
     boolean isEmailExist(String email);
 
+    List<PatientModel> getPatientEmail(String email);
+
     boolean getByDrOtp(String number_otp);
 
     void deletePatient(int id_patient);
