@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableAutoConfiguration
-@SpringBootApplication(scanBasePackages = {"com.msg.immun"})
+@SpringBootApplication
+//		(scanBasePackages = {"com.msg.immun"})
 public class ImmunApplication {
 
 	public static void main(String[] args) {
